@@ -2,15 +2,15 @@ package com.porridgez.springboot_day1;
 
 import com.porridgez.springboot_day1.SqlMapper.AccountMapper;
 import com.porridgez.springboot_day1.SqlMapper.EmployeeMapper;
-import com.porridgez.springboot_day1.controller.HelloController;
-import com.porridgez.springboot_day1.entities.Account;
+import com.porridgez.springboot_day1.entities.Employee;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
+import java.util.List;
+
 @MapperScan("com.porridgez.springboot_day1.SqlMapper")
 @SpringBootTest
 class SpringbootDay1ApplicationTests {
@@ -31,9 +31,8 @@ class SpringbootDay1ApplicationTests {
 
     @Test
     public void functionTest(){
-
-        Account account=accountMapper.getAccount("zhouyaoze","123");
-        System.out.println(account);
+        List<Employee> list=employeeMapper.getAll();
+        System.out.println(list);
     }
 
 }

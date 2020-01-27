@@ -10,68 +10,56 @@ public class Employee {
     private String email;
     //1 male, 0 female
     private Integer gender;
-    private Department department;
+    private String department;
     private Date birth;
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Integer getGender() {
         return gender;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     public Date getBirth() {
         return birth;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+
     public void setBirth(Date birth) {
         this.birth = birth;
     }
-    public Employee(Integer id, String lastName, String email, Integer gender,
-                    Department department) {
-        super();
-        this.id = id;
-        this.lastName = lastName;
-        this.email = email;
-        this.gender = gender;
-        this.department = department;
-        this.birth = new Date();
+
+    public String getDepartment() {
+        return department;
     }
 
-    public Employee() {
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     @Override
@@ -81,10 +69,8 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", gender=" + gender +
-                ", department=" + department +
+                ", department='" + department + '\'' +
                 ", birth=" + birth +
                 '}';
     }
-	
-	
 }

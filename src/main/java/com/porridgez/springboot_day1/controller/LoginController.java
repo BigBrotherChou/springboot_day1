@@ -17,14 +17,19 @@ public class LoginController {
     @Autowired
     AccountMapper accountMapper;
 
-    @PostMapping(value = "/login")
-    public String Login(@RequestParam String username,
-                        @RequestParam String password,
+    @RequestMapping("/")
+    public String Login(){
+        return "login";
+    }
+
+    @PostMapping("/")
+    public String Login(@RequestParam("username") String username,
+                        @RequestParam("password") String password,
                         HttpSession session) {
         Account account=accountMapper.getAccount(username,password);
         if(account!=null){
             session.setAttribute("username",username);
-            return "redirect:/dashboard";
+            return "dashboard";
         }else {
             return "login";
         }
@@ -32,10 +37,6 @@ public class LoginController {
 
     @RequestMapping("/dashboard")
     public String Dashboard(HttpSession session){
-//        if((boolean)session.getAttribute("islogin")){
-//            return "dashboard";
-//        }
-//        return "redirect:/";
         return "dashboard";
     }
 }
